@@ -9,29 +9,41 @@ def check_word(line,i,sign):
                 'eight':8,
                 'nine':9}
     word = ''
-    # i should not be allowed to use a computer
+    # code from hell
     try:
         if sign == '+':
-            if (line[i] + line[i+1] + line[i+2]) in strings:
-                word += str(strings[line[i] + line[i+1] + line[i+2]])
-            elif (line[i] + line[i+1] + line[i+2] + line[i+3]) in strings:
-                word += str(strings[line[i] + line[i+1] + line[i+2] + line[i+3]])
-            elif (line[i] + line[i+1] + line[i+2] + line[i+3] + line[i+4]) in strings:
-                word += str(strings[line[i] + line[i+1] + line[i+2] + line[i+3] + line[i+4]])
+
+            threeletter = (line[i] + line[i+1] + line[i+2])
+            fourletter = (line[i] + line[i+1] + line[i+2] + line[i+3])
+            fiveletter = (line[i] + line[i+1] + line[i+2] + line[i+3] + line[i+4])
+
+            if threeletter in strings:
+                word = threeletter
+            elif fourletter in strings:
+                word = fourletter
+            elif fiveletter in strings:
+                word = fiveletter
+
         else:
-            if (line[-i-3] + line[-i-2] + line[-i-1]) in strings:
-                word += str(strings[line[-i-3] + line[-i-2] + line[-i-1]])
-            elif (line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1]) in strings:
-                word += str(strings[line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1]])
-            elif (line[-i-5] + line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1]) in strings:
-                word += str(strings[line[-i-5] + line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1]])
+
+            threeletter = (line[-i-3] + line[-i-2] + line[-i-1])
+            fourletter = (line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1])
+            fiveletter = (line[-i-5] + line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1])
+
+            if threeletter in strings:
+                word = threeletter
+            elif fourletter in strings:
+                word = fourletter
+            elif fiveletter in strings:
+                word = fiveletter
+
     except:
         pass
 
     return word
 
 
-def pt1():
+def main():
     total = 0
     with open('input') as file:
         for line in file:
@@ -52,4 +64,4 @@ def pt1():
 
     return total
 
-print(pt1())
+print(main())
