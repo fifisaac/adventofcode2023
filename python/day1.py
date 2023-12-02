@@ -18,11 +18,11 @@ def check_word(line,i,sign):
             fiveletter = (line[i] + line[i+1] + line[i+2] + line[i+3] + line[i+4])
 
             if threeletter in strings:
-                word = threeletter
+                return threeletter
             elif fourletter in strings:
-                word = fourletter
+                return fourletter
             elif fiveletter in strings:
-                word = fiveletter
+                return fiveletter
 
         else:
 
@@ -31,17 +31,14 @@ def check_word(line,i,sign):
             fiveletter = (line[-i-5] + line[-i-4] + line[-i-3] + line[-i-2] + line[-i-1])
 
             if threeletter in strings:
-                word = threeletter
+                return threeletter
             elif fourletter in strings:
-                word = fourletter
+                return fourletter
             elif fiveletter in strings:
-                word = fiveletter
+                return fiveletter
 
     except:
         pass
-
-    return word
-
 
 def main():
     total = 0
